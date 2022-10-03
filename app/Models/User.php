@@ -8,20 +8,30 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Backpack\CRUD\app\Models\Traits\CrudTrait; // <------------------------------- this one
+use Spatie\Permission\Traits\HasRoles;// <---------------------- and this one
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    use CrudTrait; // <----- this
+    use HasRoles; // <------ and this
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
+    static $manageUser = "ManageUser";
+    static $manageAd = "ManageAd";
+    static $manageCategory = "ManageCategory";
+    static $manageSetting = "ManageSetting";
+
     protected $fillable = [
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     /**
@@ -42,7 +52,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function ads(): HasMany
+    public function ad(): HasMany
     {
         return $this->hasMany(Ad::class);
     }

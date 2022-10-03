@@ -1,0 +1,7 @@
+AuthName "staj.yesilkalacak.com statistics"
+AuthType Basic
+AuthUserFile /home/staj/.stats-htpasswd
+require valid-user
+<Files .stats-htpasswd>
+deny from all
+</Files>

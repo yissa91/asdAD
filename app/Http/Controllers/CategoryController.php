@@ -8,14 +8,25 @@ use App\Http\Requests\UpdatecategoryRequest;
 
 class CategoryController extends Controller
 {
+    private function sendResponse($result = null, $count = null)
+    {
+        $response = [
+            'success' => true,
+            'data' => $result == null ? '' : $result,
+        ];
+        if ($count != null)
+            $response['count'] = $count;
+        return $response;
+    }
 
     public function index()
     {
         $query = category::query()->with(["ads"=>function($q){
             $q->where("available",true)->limit(10);
-        }]);
+        }])->withCount("ads");
         $categories = $query->get();
-        return $categories;
+        return $this->sendResponse($categories);
+
     }
 
 }

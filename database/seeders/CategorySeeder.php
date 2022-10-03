@@ -22,9 +22,9 @@ class CategorySeeder extends Seeder
         category::factory()->create(["name" => "Electrical Devices", "description" => "", "image" => "category/electrical_device.png"]);
         category::factory()->create(["name" => "Smart Devices", "description" => "", "image" => "category/smart_device.png"]);
         category::factory()->create(["name" => "Beauty Tools", "description" => "", "image" => "category/beauty_tool.png"]);
-        category::factory()->create(["name" => "Toys", "description" => "", "image" => "category/toy.png"]);
-        category::factory()->create(["name" => "Industrial Tools", "description" => "", "image" => "category/industrial_tool.png"]);
-        category::factory()->create(["name" => "Sport Equipments", "description" => "", "image" => "category/sport_equipment.png"]);
+        category::factory()->create(["name" => "Toys", "description" => "", "image" => "category/toy.jpg"]);
+        category::factory()->create(["name" => "Industrial Tools", "description" => "", "image" => "category/industrial_tool.jpg"]);
+        category::factory()->create(["name" => "Sport Equipments", "description" => "", "image" => "category/sport_equipment.jpg"]);
         category::factory()->create(["name" => "Job Applications", "description" => "", "image" => "category/job_application.png"]);
     }
 }

@@ -25,8 +25,7 @@ class AdFactory extends Factory
              'price' => fake()->numberBetween(10,100),
             'available' => fake()->boolean,
           //  "category_id" => category::factory()->create()->id,
-
-            'view_number'=>fake()->numberBetween(0,10)
+            "image" => fake()->filePath(),
         ];
     }
 

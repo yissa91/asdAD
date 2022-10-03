@@ -44,6 +44,7 @@ class UserApiController extends Controller
         }
         return $res;
     }
+
     public function login(Request $request)
     {
         $password = $request->password;
@@ -54,11 +55,12 @@ class UserApiController extends Controller
          if ($user) {
             if (Hash::check($password,$user->password)) {
                 $token = $user->createToken("");
-                return ['token' => $token->plainTextToken];
+                return ['token' => $token->plainTextToken,
+                    'user' => $user];
             } else
-                return new AuthenticationException();
+                throw new AuthenticationException();
         } else
-            return new AuthenticationException();
+             throw new AuthenticationException();
     }
 
     public function logout(Request $request)
@@ -80,8 +82,13 @@ class UserApiController extends Controller
 
     public function getUser(Request $request, $id)
     {
+
         $user = User::query()->where("id", $id)->get()->first();
-        return $user;
+        if ($user != null)
+            echo "$user->name -- $user->email <br> ";
+        else
+            echo "$user->name -- $user->email <br> ";
+
 
     }
 }
