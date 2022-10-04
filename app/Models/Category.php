@@ -71,6 +71,10 @@ class category extends Model
     }
 
 
+    public function property()
+    {
+        return $this->hasMany(DefinitionProperty::class,'owner_id');
+    }
 
     function ads()
     {

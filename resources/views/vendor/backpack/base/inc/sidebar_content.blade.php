@@ -34,3 +34,5 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i>
         Backups</a></li>
 @endcan
+
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('ad') }}"><i class="nav-icon la la-question"></i> Ads</a></li>

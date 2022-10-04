@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
     /**
      * The attributes that are mass assignable.
@@ -32,6 +33,20 @@ class Ad extends Model
     public function category()
     {
         return $this->belongsTo(category::class);
+    }
+
+    public
+    function propertiesValues()
+    {
+        return $this->hasMany(DefinitionPropertyValue::class, 'owner_id')
+            ->with(['definition']);
+    }
+
+    public
+    function propertiesLookupValues()
+    {
+        return $this->hasMany(DefinitionPropertyLookupValue::class, 'owner_id')
+            ->with(['definition']);
     }
 
     public function images()

@@ -19,7 +19,8 @@
         "laravel/sanctum": "^3.0",
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7",
-        "symfony/translation": "^6.1"
+        "symfony/translation": "^6.1",
+        "illuminatech/multipart-middleware": "^1.1"
     },
     "require-dev": {
         "backpack/generators": "^3.2",

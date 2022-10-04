@@ -24,9 +24,16 @@ class CategoryController extends Controller
         $query = category::query()->with(["ads"=>function($q){
             $q->where("available",true)->limit(10);
         }])->withCount("ads");
+        //$query->whereHas("ads");
         $categories = $query->get();
         return $this->sendResponse($categories);
 
     }
 
+    public function show($id)
+    {
+        $res = category::query()->where("id",$id)->with(["property","property.options"])->get()->first();
+        return $this->sendResponse($res);
+
+    }
 }

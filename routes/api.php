@@ -27,6 +27,6 @@ Route::post('/users/logout',App\Http\Controllers\UserApiController::class."@logo
 Route::post('/users/signup',App\Http\Controllers\UserApiController::class."@signup");
 
 
-Route::get('/categories',App\Http\Controllers\CategoryController::class."@index");
+Route::resource('/categories',App\Http\Controllers\CategoryController::class);
 
 
