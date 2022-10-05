@@ -159,7 +159,7 @@ class AdApiController extends Controller
         $obj = $request->validated();
         $obj['user_id'] = $request->user()->id;
 
-        $images = $request->file('images');
+        $images = $request->file('Uimages');
         $ad = DB::transaction(function () use ($obj, $images) {
             $ad = Ad::query()->create($obj);
             $this->AddPropertyDetails($obj, $ad);

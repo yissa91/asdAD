@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('description');
             $table->integer('price');
             $table->json('specifications')->nullable();
-            $table->boolean('available')->default(false);
+            $table->boolean('available')->default(true);
             $table->integer('view_number')->default(0);
             $table->timestamps();
 

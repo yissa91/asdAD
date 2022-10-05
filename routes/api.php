@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::resource('/ads',\App\Http\Controllers\AdApiController::class)
-    ->middleware("auth:sanctum");
+Route::resource('/ads',\App\Http\Controllers\AdApiController::class);
 
 Route::post('/users/login',App\Http\Controllers\UserApiController::class."@login");
 Route::post('/users/logout',App\Http\Controllers\UserApiController::class."@logout")
@@ -28,5 +27,6 @@ Route::post('/users/signup',App\Http\Controllers\UserApiController::class."@sign
 
 
 Route::resource('/categories',App\Http\Controllers\CategoryController::class);
+
 
 
